@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="x" onclick="changeValue(value);checkWin(value) ">
+<input type="button" value="o" onclick="changeValue(value); checkWin(value)">
+<div id="display" style="margin:0"></div>
+
+<script>
+    let board = [];
+    let data = "";
+    for (let i = 0; i < 3; i++) {
+        board[i] = [".", ".", "."];
+    }
+    for (let i = 0; i < 3; i++) {
+
+        for (let j = 0; j < 3; j++) {
+            data = data + board[i][j] + "&nbsp;&nbsp;";
+        } data = data + "<br>";
+    }
+    document.getElementById('display').innerHTML = data;
+
+    function changeValue(a) {
+        data = "";
+        let posX, posY;
+        for (let i = 0; ; i++) {
+            posX = prompt("X:");
+            posY = prompt("Y:");
+            if (board[posX][posY] === 'o') {
+                board[posX][posY] = 'o';
+            } else if (board[posX][posY] === 'x') {
+                board[posX][posY] = 'x';
+            } else
+                break;
+        }
+        board[posX][posY] = a;
+        for (let i = 0; i < 3; i++) {
+            data = data + "<br>";
+            for (let j = 0; j < 3; j++) {
+                data = data + board[i][j] + "&nbsp;&nbsp";
+            }
+        }
+        document.getElementById('display').innerHTML = data;
+    }
+
+    function checkWin(b) {
+        if (
+            (board[0][0] !== '.' && board[0][0] === board[0][1] && board[0][1] === board[0][2])
+            || (board[0][0] === board[1][0] && board[1][0] === board[2][0] && board[2][0] !== '.')
+            || (board[2][0] !== '.' && board[2][0] === board[2][1] && board[2][1] === board[2][2])
+            || (board[0][2] !== '.' && board[0][2] === board[1][2] && board[1][2] === board[2][2])
+            || (board[0][0] !== '.' && board[0][0] === board[1][1] && board[1][1] === board[2][2])
+            || (board[0][2] !== '.' && board[0][2] === board[1][1] && board[1][1] === board[2][0])
+            || (board[0][1] !== '.' && board[0][1] === board[1][1] && board[1][1] === board[2][1])
+            || (board[1][0] !== '.' && board[1][1] === board[1][0] && board[1][1] === board[1][2])) {
+
+            alert(b + ' win');
+
+        }
+
+    }
+
+</script>
+</body>
+</html>

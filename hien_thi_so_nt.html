@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let dem = 1;
+    for (let i = 3; dem <= 20; i++) {
+        if (kiemtraNT(i) !== -1) {
+            dem = dem + 1;
+            document.write(i + "<br>");
+        }
+    }
+
+    function kiemtraNT(a) {
+        let S = 0;
+        for (let i = 1; i <= Math.sqrt(a); i++) {
+            if (a % i === 0) {
+                S = S + 1;
+            }
+        }
+        if (S === 2) {
+            return a;
+        } else
+            return -1;
+    }
+</script>
+</body>
+</html>
