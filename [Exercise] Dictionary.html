@@ -5,10 +5,30 @@
     <title>[Exercise] Dictionary</title>
 </head>
 <body>
-<form >
+<form>
     <label>
-        <input type="text" onkeydow>Anh-Viet
+        <input type="text" id="engWord">Anh
     </label>
+    <label>
+        <input type="text" id="VietWord">Viet
+    </label>
+    <input type="button" value="submit" onclick="tran();">
+    <script>
+        let EngDict = ['hello', 'goodbye'];
+        let VIeDict = ['xin chao', 'tam biet'];
+
+        function tran() {
+            let inputWord = document.getElementById('engWord').value;
+            let pos = EngDict.indexOf(inputWord);
+            if (pos !== -1) {
+                let outputWord = VIeDict[pos];
+                document.getElementById('VietWord').value = outputWord;
+
+            }
+        }
+
+
+    </script>
 </form>
 </body>
 </html>
