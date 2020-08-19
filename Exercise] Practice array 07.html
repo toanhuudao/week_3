@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise] Practice array 07</title>
+</head>
+<body>
+<script>
+    var A=[];
+    for (let i=0;i<10;i++){
+        A[i]=parseInt(prompt('nhap A['+i+']:'));
+    }
+    arrayDegree(A);
+    document.write(A);
+
+
+    function arrayDegree(B) {
+        for (let i=0;i<9;i++){
+            for (let j=i+1;j<10;j++){
+                if (B[i]>B[j]){
+                    let temp;
+                    temp=B[i];
+                    B[i]=B[j];
+                    B[j]=temp;
+                   // swap(B[i],B[j]);
+                }
+            }
+        }
+        return B;
+    }
+
+    function swap(a,b) {
+        let temp;
+        temp=a;
+        a=b;
+        b=temp;
+
+    }
+</script>
+</body>
+</html>
